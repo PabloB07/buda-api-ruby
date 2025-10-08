@@ -16,6 +16,7 @@ A comprehensive Ruby SDK for [Buda.com](https://buda.com) cryptocurrency exchang
 - ⚡ **Automatic Retries** - Built-in retry logic for transient failures
 - 📖 **Extensive Documentation** - Complete API reference and examples
 - 🧪 **Comprehensive Examples** - Real-world usage examples including a trading bot
+- 🤖 **AI-Powered Trading** - Advanced AI features with RubyLLM integration
 
 ## Installation
 
@@ -35,6 +36,12 @@ Or install it yourself as:
 
 ```bash
 $ gem install buda_api
+```
+
+For AI features, also install:
+
+```bash
+$ gem install ruby_llm
 ```
 
 ## Quick Start
@@ -373,6 +380,14 @@ The SDK includes comprehensive examples in the `examples/` directory:
 
 - [`trading_bot_example.rb`](examples/trading_bot_example.rb) - Simple trading bot with price monitoring
 
+### AI-Enhanced Examples
+
+- [`ai/trading_assistant_example.rb`](examples/ai/trading_assistant_example.rb) - Comprehensive AI trading assistant
+- [`ai/natural_language_trading.rb`](examples/ai/natural_language_trading.rb) - Conversational trading interface
+- [`ai/risk_management_example.rb`](examples/ai/risk_management_example.rb) - AI-powered risk analysis
+- [`ai/anomaly_detection_example.rb`](examples/ai/anomaly_detection_example.rb) - Market anomaly detection
+- [`ai/report_generation_example.rb`](examples/ai/report_generation_example.rb) - Automated trading reports
+
 ### Running Examples
 
 1. Copy the environment file:
@@ -390,6 +405,9 @@ BUDA_API_SECRET=your_api_secret_here
 ```bash
 # Public API example (no credentials needed)
 ruby examples/public_api_example.rb
+
+# AI-enhanced trading assistant
+ruby examples/ai/trading_assistant_example.rb
 
 # Authenticated API example (requires credentials)
 ruby examples/authenticated_api_example.rb
@@ -462,9 +480,88 @@ The SDK automatically handles HMAC-SHA384 signature generation:
 2. Creates signature using HTTP method, path, body, and nonce
 3. Includes proper headers: `X-SBTC-APIKEY`, `X-SBTC-NONCE`, `X-SBTC-SIGNATURE`
 
+## AI Features
+
+The BudaApi Ruby SDK includes powerful AI enhancements through RubyLLM integration:
+
+### Trading Assistant
+```ruby
+# Initialize AI trading assistant
+assistant = BudaApi.trading_assistant(client)
+
+# Get AI market analysis
+analysis = assistant.analyze_market("BTC-CLP")
+puts analysis[:ai_recommendation][:action]  # "buy", "sell", or "hold"
+puts analysis[:ai_recommendation][:confidence]  # Confidence percentage
+
+# Get trading strategy recommendations
+strategy = assistant.suggest_trading_strategy(
+  market_id: "BTC-CLP",
+  risk_tolerance: "medium",
+  investment_horizon: "short_term"
+)
+```
+
+### Natural Language Trading
+```ruby
+# Create conversational trading interface
+nl_trader = BudaApi.natural_language_trader(client)
+
+# Execute commands in natural language
+result = nl_trader.execute_command("Check my Bitcoin balance")
+result = nl_trader.execute_command("What's the current price of Ethereum?")
+result = nl_trader.execute_command("Buy 0.001 BTC at market price")
+```
+
+### Risk Management
+```ruby
+# Initialize AI risk manager
+risk_manager = BudaApi::AI::RiskManager.new(client)
+
+# Analyze portfolio risk with AI insights
+portfolio_risk = risk_manager.analyze_portfolio_risk(
+  include_ai_insights: true
+)
+
+# Evaluate individual trade risk
+trade_risk = risk_manager.evaluate_trade_risk(
+  "BTC-CLP", "buy", 0.001
+)
+```
+
+### Anomaly Detection
+```ruby
+# Create market anomaly detector
+detector = BudaApi::AI::AnomalyDetector.new(client)
+
+# Detect market anomalies with AI analysis
+anomalies = detector.detect_market_anomalies(
+  markets: ["BTC-CLP", "ETH-CLP"],
+  include_ai_analysis: true
+)
+```
+
+### Report Generation
+```ruby
+# Generate AI-powered reports
+reporter = BudaApi::AI::ReportGenerator.new(client)
+
+# Portfolio summary with AI insights
+report = reporter.generate_portfolio_summary(
+  format: "markdown",
+  include_ai: true
+)
+
+# Custom AI analysis
+custom_report = reporter.generate_custom_report(
+  "Analyze market trends and provide investment recommendations",
+  [:portfolio, :market]
+)
+```
+
 ## Contributing
 
-1. Fork it (https://github.com/yourusername/buda-api-ruby/fork)
+1. Fork it (https://github.com/PabloB07/buda-api-ruby/fork)
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
@@ -473,7 +570,7 @@ The SDK automatically handles HMAC-SHA384 signature generation:
 ### Development Setup
 
 ```bash
-git clone https://github.com/yourusername/buda-api-ruby.git
+git clone https://github.com/PabloB07/buda-api-ruby.git
 cd buda-api-ruby
 bundle install
 bundle exec rspec
@@ -517,8 +614,8 @@ The authors and contributors are not responsible for any financial losses incurr
 ## Support
 
 - 📖 [API Documentation](https://api.buda.com)  
-- 🐛 [Issue Tracker](https://github.com/yourusername/buda-api-ruby/issues)
-- 💬 [Discussions](https://github.com/yourusername/buda-api-ruby/discussions)
+- 🐛 [Issue Tracker](https://github.com/PabloB07/buda-api-ruby/issues)
+- 💬 [Discussions](https://github.com/PabloB07/buda-api-ruby/discussions)
 
 ## Related Projects
 

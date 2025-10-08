@@ -1,6 +1,6 @@
 Gem::Specification.new do |spec|
   spec.name          = "buda_api"
-  spec.version       = "1.0.0"
+  spec.version       = "1.0.1"
   spec.authors       = ["Buda API Ruby SDK"]
   spec.email         = ["pablob0798@gmail.com"]
 
@@ -28,6 +28,9 @@ Gem::Specification.new do |spec|
   spec.add_dependency "faraday-retry", "~> 2.0"
   spec.add_dependency "logger", "~> 1.5"
   spec.add_dependency "json", "~> 2.6"
+
+  # Optional AI dependencies
+  spec.add_dependency "ruby_llm", "~> 0.5", ">= 0.5.0"
 
   # Development dependencies
   spec.add_development_dependency "rspec", "~> 3.0"
