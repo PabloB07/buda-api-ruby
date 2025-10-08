@@ -1,0 +1,57 @@
+# Ignore build artifacts and dependencies
+*.gem
+*.rbc
+/.config
+/coverage/
+/InstalledFiles
+/pkg/
+/spec/reports/
+/spec/examples.txt
+/test/tmp/
+/test/version_tmp/
+/tmp/
+
+# Documentation
+/doc/
+/.yardoc/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Environment files
+.env
+.env.local
+.env.production
+
+# Bundler
+.bundle/
+vendor/
+
+# RSpec
+.rspec_status
+
+# VCR cassettes (may contain sensitive data)
+spec/fixtures/vcr_cassettes/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs
+*.log
+
+# Ruby version managers  
+.ruby-version
+.ruby-gemset
+.rvmrc
+
+# Local development
+/local_examples/

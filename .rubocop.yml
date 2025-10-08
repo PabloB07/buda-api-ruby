@@ -1,0 +1,49 @@
+# RuboCop configuration
+# This file contains the configuration for RuboCop, a Ruby static code analyzer
+
+AllCops:
+  TargetRubyVersion: 2.7
+  Exclude:
+    - 'vendor/**/*'
+    - 'spec/fixtures/**/*'
+    - 'tmp/**/*'
+
+# Disable some rules that are too strict for this project
+Layout/LineLength:
+  Max: 100
+  Exclude:
+    - 'examples/**/*'
+
+Style/Documentation:
+  Enabled: false
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Style/FrozenStringLiteralComment:
+  Enabled: true
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*'
+    - 'examples/**/*'
+    - '*.gemspec'
+
+Metrics/MethodLength:
+  Max: 20
+  Exclude:
+    - 'examples/**/*'
+
+Metrics/ClassLength:
+  Max: 200
+
+Metrics/ModuleLength:
+  Max: 200
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+# Allow long parameter lists in examples
+Metrics/ParameterLists:
+  Exclude:
+    - 'examples/**/*'
